@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import Express from 'express';
 import requestIp from 'request-ip';
 import geoip from 'geoip-lite';

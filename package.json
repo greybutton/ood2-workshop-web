@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "NODE_ENV=production babel server --out-dir dist --source-maps inline",
+    "build": "babel server --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
     "@babel/node": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "axios": "^0.18.0",
     "express": "^4.16.3",
