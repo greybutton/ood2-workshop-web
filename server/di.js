@@ -4,15 +4,8 @@ import geoip from 'geoip-lite';
 import axios from 'axios';
 
 const bottle = new Bottle();
-bottle.service('getIp', () => req => requestIp.getClientIp(req));
-bottle.service('getCity', () => (ip) => {
-  const { city } = geoip.lookup(ip);
-  console.log(ip, city);
-  return city;
-});
-bottle.service('http', () => async (url) => {
-  const { data } = await axios(url);
-  return data;
-});
+bottle.service('getIp', () => requestIp.getClientIp);
+bottle.service('getCity', () => geoip.lookup);
+bottle.service('http', () => axios);
 
 export default bottle;
