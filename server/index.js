@@ -21,6 +21,7 @@ export default (di) => {
       res.json(data);
     } catch (e) {
       const { response: { data } } = e;
+      res.status(data.cod);
       res.json(data);
     }
   });
