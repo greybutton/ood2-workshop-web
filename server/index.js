@@ -20,8 +20,9 @@ export default (di) => {
       const { data } = await http(url);
       res.json(data);
     } catch (e) {
-      const { response: { data } } = e;
-      res.status(data.cod);
+      const { response } = e;
+      const { data } = response;
+      res.status(response.status);
       res.json(data);
     }
   });
