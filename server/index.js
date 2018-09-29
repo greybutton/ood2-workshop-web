@@ -16,8 +16,13 @@ export default (di) => {
     const key = '&APPID=af85ac894f9ddf863e28168893b4747f';
     const weather = `weather?q=${city}`;
     const url = `${api}${weather}${key}`;
-    const { data } = await http(url);
-    res.json(data);
+    try {
+      const { data } = await http(url);
+      res.json(data);
+    } catch (e) {
+      const { response: { data } } = e;
+      res.json(data);
+    }
   });
 
   return app;
